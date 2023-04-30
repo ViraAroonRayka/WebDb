@@ -1,0 +1,51 @@
+﻿@page
+@model WebDb.Pages.NeedeeModel
+@{
+}
+<html>
+<head></head>
+<body>
+    <h1>فرم ثبت نام مددجو</h1>
+    <form method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>مشخصات</th>
+                    <th>ورود اطلاعات</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>نام</td>
+                <td><input type="text" name="FirstNameTextBox" /> </td>
+            </tr>
+            <tr>
+                <td>نام خانوادگی</td>
+                <td><input type="text" name="LastNameTextBox" /> </td>
+            </tr>
+            <tr>
+                <td>کد ملی</td>
+                <td><input type="number" name="NationalCodeTextBox" /> </td>
+            </tr>
+            <tr>
+                <td>جنسیت</td>
+                <td>
+                    <select name="GenderSelect">
+                        <option value="Male">آقا</option>
+                        <option value="Female">خانم</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="پاک کردن فرم" /></td>
+                <td><input type="submit" value="ثبت نام مددجو" class="btn-primary" /> </td>
+            </tr>
+        </table>
+    </form>
+    @if (ViewData["NeedeeInfo"] != null)
+    {
+        <div>
+            اطلاعات مددجو با مشخصات @ViewData["NeedeeInfo"]  با موفقیت دریافت شد   
+        </div>
+    }
+</body>
+</html>
