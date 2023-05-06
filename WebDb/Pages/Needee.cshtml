@@ -44,6 +44,17 @@
     @if (ViewData["NeedeeInfo"] != null)
     {
         <div>
+           
+            @if (ViewData["Gender"].Equals("Male"))
+                {
+                    <div>آقا</div>
+                }
+                else
+                {
+                    <div>خانم</div>
+                }
+
+           
             اطلاعات مددجو با مشخصات @ViewData["NeedeeInfo"]  با موفقیت دریافت شد   
         </div>
     }
