@@ -35,13 +35,17 @@ namespace WebDb.Db
             {
                 entity.ToTable("Needee");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.BirthDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Education).HasMaxLength(30);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
                     .HasMaxLength(30);
 
                 entity.Property(e => e.Gender).HasMaxLength(7);
+
+                entity.Property(e => e.Job).HasMaxLength(50);
 
                 entity.Property(e => e.LastName)
                     .IsRequired()

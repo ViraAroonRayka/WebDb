@@ -12,5 +12,11 @@ namespace WebDb.Db
         public string LastName { get; set; }
         public string NationalCode { get; set; }
         public string Gender { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string Education { get; set; }
+        public bool? IsMarried { get; set; }
+        public string Job { get; set; }
+        public string Notes { get; set; }
+        public bool? IsDeleted { get; set; }
     }
 }
