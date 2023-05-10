@@ -1,0 +1,48 @@
+﻿@page
+@model WebDb.Pages.EditModel
+@{
+}
+<h1>ویرایش اطلاعات مددجو</h1>
+<form method="post" class="box-shadow">
+    <table>
+        <thead>
+            <tr>
+                <th>مشخصات</th>
+                <th>ورود اطلاعات</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>نام</td>
+            <td><input type="text" name="FirstNameTextBox" value="@Model.needeeToEdit.FirstName" /> </td>
+        </tr>
+        <tr>
+            <td>نام خانوادگی</td>
+            <td><input type="text" name="LastNameTextBox" value="@Model.needeeToEdit.LastName" /> </td>
+        </tr>
+        <tr>
+            <td>کد ملی</td>
+            <td><input type="number" name="NationalCodeTextBox" value="@Model.needeeToEdit.NationalCode" /> </td>
+        </tr>
+        <tr>
+            <td>جنسیت</td>
+            <td>
+
+                <select name="GenderSelect">
+                    @if (Model.needeeToEdit.Gender == "Male")
+                    {
+                        <option value="Male" selected >آقا</option>
+                    }
+                    else
+                    {
+                    <option value="Female" selected>خانم</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="پاک کردن فرم" /></td>
+            <td><input type="submit" value="ویرایش اطلاعات مددجو" class="btn-primary" /> </td>
+        </tr>
+        </table>
+
+</form>
