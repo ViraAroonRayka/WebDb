@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,16 +20,26 @@ namespace WebDb.Pages
         {
             try
             {
-                int needeeId = Convert.ToInt32(Request.Query["Id"]);
-                Needee needeeToDelete = _context.Needees.First(n => n.Id == needeeId);
-
-                _context.Needees.Remove(needeeToDelete);
-                _context.SaveChanges();
+                string id = Request.Query["Id"].ToString();
+                if (!string.IsNullOrEmpty(id))
+                {
+                    int needeeId = Convert.ToInt32(id);
+                    Needee needeeToDelete = _context.Needees.FirstOrDefault(n => n.Id == needeeId);
+                    if (needeeToDelete != null)
+                    {
+                        _context.Needees.Remove(needeeToDelete);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        ViewData["Error"] += "مددجویی با این شناسه یافت نشد\n";
+                    }
+                }                
 
             }
             catch(Exception ex)
             {
-                ViewData["Error"] = ex.Message.ToString();
+                ViewData["Error"] += ex.Message.ToString();
             }
         }
 
