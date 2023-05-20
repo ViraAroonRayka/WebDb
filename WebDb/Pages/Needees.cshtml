@@ -6,6 +6,10 @@
 <html dir="rtl">
 <body>
     <h1>لیست مددجویان ثبت نام شده</h1>
+    <form method="post">
+        <input type="search" name="SearchTextBox" />
+        <input type="submit" value="جستجو" name="SearchButton" />
+    </form>
     <table class="table">
         <thead>
             <tr>
@@ -27,7 +31,7 @@
                 <td>@n.Gender</td>
                 <td><a href=@("/Delete?Id="+ @n.Id)>حدف</a></td>
                 <td><a href=@("/Edit?Id="+ @n.Id)>ویرایش</a></td>
-                <td><a href=@("/Details?Id=" +@n.Id)>مشاهده جزئیات</a></td>
+                <td><a href=@("/Needee?Id=" +@n.Id)>مشاهده جزئیات</a></td>
             </tr>
             }
             

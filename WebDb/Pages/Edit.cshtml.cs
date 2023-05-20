@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Linq;
 using WebDb.Db;
 
 namespace WebDb.Pages
@@ -14,7 +11,7 @@ namespace WebDb.Pages
         public Needee needeeToEdit;
         public EditModel()
         {
-           
+
         }
         public void OnGet()
         {
@@ -23,7 +20,7 @@ namespace WebDb.Pages
             {
                 int idToEdit = Convert.ToInt32(id);
                 needeeToEdit = _context.Needees.FirstOrDefault(n => n.Id == idToEdit);
-               
+
             }
         }
         public void OnPost()
@@ -41,11 +38,12 @@ namespace WebDb.Pages
                 {
                     needeeToEdit.FirstName = Request.Form["FirstNameTextBox"].ToString();
                     needeeToEdit.LastName = Request.Form["LastNameTextBox"].ToString();
-                    needeeToEdit.LastName = Request.Form["NationalCodeTextBox"].ToString();
+                    needeeToEdit.NationalCode = Request.Form["NationalCodeTextBox"].ToString();
                     _context.SaveChanges();
+                    Response.Redirect("Needees");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewData["Error"] = ex.Message;
             }

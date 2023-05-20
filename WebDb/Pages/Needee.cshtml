@@ -5,7 +5,14 @@
 <html>
 <head></head>
 <body>
-    <h1>فرم ثبت نام مددجو</h1>
+    @if (Model.isRegisterMode)
+    {
+        <h1>فرم ثبت نام مددجو</h1>
+    }
+    else
+    {
+        <h1>مشاهده جزئیات اطلاعات مددجو: @(Model.needee!=null? Model.needee.FirstName + " " + Model.needee.LastName:"" )</h1>
+    }
     <form method="post">
         <table>
             <thead>
@@ -16,15 +23,15 @@
             </thead>
             <tr>
                 <td>نام</td>
-                <td><input type="text" name="FirstNameTextBox" /> </td>
+                <td><input type="text" name="FirstNameTextBox" value="@(Model.needee!=null && Model.isRegisterMode?"" : Model.needee.FirstName)" /> </td>
             </tr>
             <tr>
                 <td>نام خانوادگی</td>
-                <td><input type="text" name="LastNameTextBox" /> </td>
+                <td><input type="text" name="LastNameTextBox" value="@(Model.needee!=null && Model.isRegisterMode?"" : Model.needee.LastName)"/> </td>
             </tr>
             <tr>
                 <td>کد ملی</td>
-                <td><input type="number" name="NationalCodeTextBox" /> </td>
+                <td><input type="number" name="NationalCodeTextBox" value="@(Model.needee!=null && Model.isRegisterMode?"" : Model.needee.NationalCode)"/> </td>
             </tr>
             <tr>
                 <td>جنسیت</td>
@@ -35,27 +42,38 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-                <td><input type="reset" value="پاک کردن فرم" /></td>
-                <td><input type="submit" value="ثبت نام مددجو" class="btn-primary" /> </td>
-            </tr>
+            @if (Model.isRegisterMode)
+            {
+                <tr>
+                    <td><input type="reset" value="پاک کردن فرم" /></td>
+                    <td><input type="submit" value="ثبت نام مددجو" class="btn-primary" /> </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <input type="submit" value="بازگشت به لیست مددجویان" /></td>
+                    <td>
+                </tr>
+            }
         </table>
     </form>
     @if (ViewData["NeedeeInfo"] != null)
     {
         <div>
-           
-            @if (ViewData["Gender"].Equals("Male"))
-                {
-                    <div>آقا</div>
-                }
-                else
-                {
-                    <div>خانم</div>
-                }
 
-           
-            اطلاعات مددجو با مشخصات @ViewData["NeedeeInfo"]  با موفقیت دریافت شد   
+            @if (ViewData["Gender"].Equals("Male"))
+            {
+                <div>آقا</div>
+            }
+            else
+            {
+                <div>خانم</div>
+            }
+
+
+            اطلاعات مددجو با مشخصات @ViewData["NeedeeInfo"]  با موفقیت دریافت شد
         </div>
     }
 </body>
