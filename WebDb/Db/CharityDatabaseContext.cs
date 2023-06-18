@@ -37,7 +37,7 @@ namespace WebDb.Db
 
                 entity.Property(e => e.BirthDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Education).HasMaxLength(30);
+                //entity.Property(e => e.Education).HasMaxLength(30);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()

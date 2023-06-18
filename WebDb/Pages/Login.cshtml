@@ -1,0 +1,14 @@
+﻿@page
+@model WebDb.Pages.LoginModel
+@{
+}
+<h1>
+    ورود به سامانه
+</h1>
+<form method="post">
+    <label>نام کاربری</label><input type="text" placeholder="نام کاربری" name="username" />
+    <label>گذرواژه</label><input type="text" placeholder=" گذرواژه" name="password" />
+    <input type="submit" value="ورود به سیستم" />
+    <input type="hidden" name="userId" value="@TempData["UserId"]" />
+    <input type="hidden" name="roleId" value="@TempData["RoleId"]" />
+</form>

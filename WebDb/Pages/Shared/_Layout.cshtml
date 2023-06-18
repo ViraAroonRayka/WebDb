@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +10,14 @@
 
 </head>
 <body>
+    @if(ViewContext.HttpContext.Session.GetString("UserId") != null)
+            {
+                <div>شما وارد سیستم شده اید</div>
+    }
+    else
+    {
+        //ViewContext.HttpContext.Response.Redirect("/Login");
+    }
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">

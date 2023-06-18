@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDb", "WebDb\WebDb.csproj", "{F905F09B-559D-4AE6-A189-B93544E3DA22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipSystem", "MembershipSystem\MembershipSystem.csproj", "{0DDEBD4C-3435-47DC-A5E7-CA962A957F49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MembershipSystem", "MembershipSystem\MembershipSystem.csproj", "{0DDEBD4C-3435-47DC-A5E7-CA962A957F49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
